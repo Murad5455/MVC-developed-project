@@ -1,0 +1,66 @@
+﻿@using MVC_STOK4.Models.ENTITY
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<TBLURUNLER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+
+
+[build]
+command = "npm run build && npm run export"
+publish = "out"
+
+
+
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>URUN ID</th>
+            <th>URUN AD</th>
+
+            <th>MARKA</th>
+            <th>URUN KATEQORI</th>
+            <th>QIYMET</th>
+            <th>STOK</th>
+            <th>SIL</th>
+            <th>GUNCELLE</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <td>@urn.URUNID</td>
+                <td>@urn.URUNAD</td>
+                <td>@urn.MARKA</td>
+                <td>@urn.URUNKATEQORI</td>
+                <td>@urn.FIATI</td>
+                <td>@urn.STOK</td>
+                <td><a href="/URUN/SIL/@urn.URUNID" class="btn btn-danger">SIL</a></td>
+                <td><a href="/URUN/UreunGuncelle/@urn.URUNID" class="btn btn-success">GUNCELLE</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+
+
+</table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/URUN/YeniUrun" class="btn btn-primary">YENI URUN EKLE</a>
+
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.semanticui.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+</script>

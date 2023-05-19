@@ -1,0 +1,44 @@
+﻿@model MVC_STOK4.Models.ENTITY.TBLURUNLER
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+<form method="post" class="form-group">
+    <div>
+    <label>URUN ADI</label>
+        <input type="text"class="form-control"name="URUNAD" required=""maxlength="5"placeholder="Bualani bos gecmeyin" />
+    </div>
+
+
+    
+
+    <div>
+        <label>MARKASI</label>
+        <input type="text"class="form-control"name="MARKA" />
+    </div>
+    <div>
+        <label>URUNUN KATEQORISI</label>
+      @Html.DropDownListFor(m=>m.TBLKATEQORILER.KATEQORIID,(List<SelectListItem>)ViewBag.dgr,new {@class="form-control"})
+
+    </div>
+    <div>
+        <label>QIYMETI</label>
+        <input type="text"class="form-control"name="FIATi" />
+    </div>
+    <div>
+        <label>STOK</label>
+        <input type="text"class="form-control"name="STOK" />
+    </div>
+
+    <div style="margin-top:15px"> <button class="btn btn-info"id="btn1">URUN ARTIR</button> </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('<Musteri eleleme islemi yapildi..!');
+        });
+        
+    </script>
+
+
+</form>
+

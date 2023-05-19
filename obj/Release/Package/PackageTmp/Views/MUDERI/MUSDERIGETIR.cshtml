@@ -1,0 +1,32 @@
+﻿@model MVC_STOK4.Models.ENTITY.TBLMUSDERILER   
+@{
+    ViewBag.Title = "MUSDERIGETIR";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+@using (Html.BeginForm("Guncelle","MUDERI",FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m=>m.MUSDERIID)
+                    @Html.TextBoxFor(m => m.MUSDERIID, new{ @class="form-control"})
+                </div>
+                <br />
+                <div>
+                    @Html.LabelFor(m=>m.MUSDERIAD)
+                    @Html.TextBoxFor(m => m.MUSDERIAD, new {@class="form-control"})
+                </div>
+                <br />
+                <div>
+                    @Html.LabelFor(m=>m.MUSDERISOYAD)
+                   @Html.TextBoxFor(m=>m.MUSDERISOYAD,new { @class="form-control"})
+                </div>
+
+
+                <div style="margin-top:15px">
+               
+                    <button class="btn btn-warning">MUSDERI GUNCELE</button>
+                </div>
+
+
+            }
+
+

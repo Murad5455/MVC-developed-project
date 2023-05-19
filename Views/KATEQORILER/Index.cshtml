@@ -1,0 +1,47 @@
+﻿@using MVC_STOK4.Models.ENTITY
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<TBLKATEQORILER>
+
+@{
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>KATEQORI ID </th>
+
+        <th>KATEQORI ADI</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+        <th>ALERT</th>
+    </tr>
+    <tbody>
+        @foreach (var KTGR in Model)
+        {
+            <tr>
+                <th>@KTGR.KATEQORIID</th>
+                <td>@KTGR.KATEQORIAD</td>
+                <td><a href="/KATEQORILER/SIL/@KTGR.KATEQORIID " class="btn btn-danger">SIL</a></td>
+                <td><a href="/KATEQORILER/KateqoriGuncelle/@KTGR.KATEQORIID" class="btn btn-success">GUNCELLE</a></td>
+                <td>
+                    @Html.ActionLink("SIL BUTTONU", "SIL", new { id = KTGR.KATEQORIID }, new
+                    {
+                        @class = "btn btn-warning",
+           onclick = "return confirm('Silinsin mi?')"
+                    })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }));
+
+
+<td><a href="/KATEQORILER/YeniKateqori/" class="btn btn-primary">YENI KATEQORI EKLE</a></td>

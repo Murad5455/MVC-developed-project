@@ -1,0 +1,33 @@
+﻿@model MVC_STOK4.Models.ENTITY.TBLMUSDERILER
+
+@{
+    ViewBag.Title = "YeniMusderi";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+<form method="post" class="form-group">
+    @*div>
+            <label>MUSDERI ADI</label>
+            <input type="text"class="form-control" name="MUSDERIAD" />
+
+        </div>*@
+
+    <div>
+        <label>MUSDEI ADI</label>
+        @Html.TextBoxFor(m => m.MUSDERIAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MUSDERIAD, "", new { @style = "color:red" })
+    </div>
+
+    <div>
+        <label>MUSDEIR SOYAD</label>
+        <input type="text" class="form-control" name="MUSDERISOYAD" />
+
+
+    </div>
+    <div style="margin-top: 15PX"><button class="btn btn-info" id="btn1">MUDERI EKLE</button></div>
+</form>
+    <script>
+        $('#btn1').click(function () { alert('MUSDERI EKLENDI'); });
+    </script>
+
+

@@ -1,0 +1,43 @@
+﻿@using MVC_STOK4.Models.ENTITY
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<TBLMUSDERILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>MUSDERI ID</th>
+        <th>MUDERI AD</th>
+        <th>MUSDERI SOYAD</th>
+        <th>SIL</th>
+        <th>GUNCELLE</th>
+        <th>ALTER</th>
+    </tr>
+    <tbody>
+        @foreach (var Q in Model)
+        {
+            <tr>
+                <tH>@Q.MUSDERIID</tH>
+                <td>@Q.MUSDERIAD</td>
+                <td>@Q.MUSDERISOYAD</td>
+                <td><a href="/MUDERI/SIL/@Q.MUSDERIID" class="btn btn-danger">SIL</a></td>
+                <td><a href="/MUDERI/MUSDERIGETIR/@Q.MUSDERIID" class="btn btn-success">GUNCELLE</a></td>
+
+
+                <td>
+                    @Html.ActionLink("SIL BUTONU", "SIL", new { id = @Q.MUSDERIID },
+                    new { @class = "btn btn-warning", onclick = "return confirm('SILINSIN MI?')" })
+                </td>
+            </tr>
+}
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
+
+
+
+<a href="/MUDERI/YeniMusderi/"class="btn btn-info">MUSDERI EKLE</a>

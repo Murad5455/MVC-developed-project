@@ -1,0 +1,49 @@
+﻿@model MVC_STOK4.Models.ENTITY.TBLSATISLAR
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">SATIS YAP</button>
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h2 class="modal-title">SATIS EKRANI</h2>
+            </div>
+            <br />
+            <form method="post" action="/SATIS/YeniSatis">
+                <div class="modal-body">
+                <div>
+                    <label>URUN ADI</label>
+                    @Html.TextBoxFor(Q => Q.URUN, new { @class = "form-control" })
+                </div>
+                <br />
+                <div>
+                    <label>MUSDERIN AD SOYAD</label>
+                    @Html.TextBoxFor(Q => Q.MUSDERI, new { @class = "form-control" })
+                </div>
+                <br />
+                <div>
+                    <label>SAYI</label>
+                    @Html.TextBoxFor(Q => Q.ADET, new { @class = "form-control" })
+                </div>
+                <br />
+                <div>
+                    <label>QIYMETI</label>
+                    @Html.TextBoxFor(Q => Q.FIAT, new {@class="form-control"})
+
+
+                </div>
+                <br />
+                <div>  <button type="submit" class="btn btn-info">SATIS YAPILDI</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">VAZKEC</button></div>
+                <br />
+        </div>
+
+        </form>
+
+    </div>
+        </div>
+    </div>

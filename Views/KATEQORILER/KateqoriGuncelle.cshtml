@@ -1,0 +1,23 @@
+﻿@model MVC_STOK4.Models.ENTITY.TBLKATEQORILER
+@{
+    ViewBag.Title = "KateqoriGuncelle";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+@using(Html.BeginForm("GUNCELLE","KATEQORILER",FormMethod.Post))
+            {
+<div>
+    <label>KATEQORI IDSI</label>
+    @Html.TextBoxFor(m => m.KATEQORIID, new {@class="form-control"})
+
+</div>
+<br />
+<div>
+    <label>KATEQORI ADI</label>
+    @Html.TextBoxFor(m => m.KATEQORIAD, new {@class="form-control"})
+
+</div>
+<div style="margin-top:15px"><button class="btn btn-warning">KATEQORI GUNCELLE</button></div>
+
+            }
+

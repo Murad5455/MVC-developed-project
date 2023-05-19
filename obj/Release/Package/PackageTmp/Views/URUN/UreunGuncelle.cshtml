@@ -1,0 +1,47 @@
+﻿@model MVC_STOK4.Models.ENTITY.TBLURUNLER
+@{
+    ViewBag.Title = "UreunGuncelle";
+    Layout = "~/Views/Shared/_LAYOUTSTOK.cshtml";
+}
+
+@using (Html.BeginForm("GUNCELLE", "URUN", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m => m.URUNID)
+        @Html.TextBoxFor(M => M.URUNID,new  {@class="form-control" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.URUNAD)
+        @Html.TextBoxFor(m => m.URUNAD, new {@class="form-control"})
+
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.MARKA)
+        @Html.TextBoxFor(m => m.MARKA,new {@class="form-control"})
+    </div>
+    <br />
+
+    <div>
+        @Html.LabelFor(m => m.URUNKATEQORI)
+        @*@Html.TextBoxFor(m => m.URUNKATEQORI, new {@class="form-control"})*@
+        
+        @Html.DropDownListFor(m => m.TBLKATEQORILER.KATEQORIID, (List<SelectListItem>)ViewBag.urn, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.FIATI)
+        @Html.TextBoxFor(m => m.FIATI, new {@class="form-control"})
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(m => m.STOK)
+        @Html.TextBoxFor(m => m.STOK, new {@class="form-control"})
+    </div> 
+
+    <div style="margin-top:15px"><button class="btn btn-warning">URUN GUNCELLE</button></div>
+
+      
+}
+
